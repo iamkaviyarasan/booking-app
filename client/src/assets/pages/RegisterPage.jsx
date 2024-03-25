@@ -27,7 +27,7 @@ axios.get ('http:localhost:4000/test');
     <input type="password" placeholder="password"
     value={password}
     onChange={ev=> setPassword (ev.target.value)} />
-    <button className="primary">Register</button>
+    <button className="primary">Register </button>
     <div className="text-center py-2 text-gray-500">
         Already a member? <Link className="UnderLine text-black" to={'/login'}>Login</Link> 
     </div>
