@@ -47,25 +47,25 @@ app.post("/register", async (req,res) =>{
     
 
 });
-app.post( '/login',async  (req, res) =>{
-    const {email,password} =req.body;
-    const userDoc = await User.findOne({email});
-    if(userDoc){
-      const passOk = bcrypt.compareSync(password, userDoc.password);
-      if(passOk){
-        jwt.sign({email:userDoc.email, id:userDoc._id}, jwtsecret, {},(err,token) =>{
-            if(err) throw err;
-            res.cookie('token', token).json('pass ok');
-           
-        })
-        res.cookie('token','').json('pass ok');
-    }else{
-          res.status(422).json('pass not ok');
-      }
-    }else{ 
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const userDoc = await User.findOne({ email });
+    if (userDoc) {
+        const passOk = bcrypt.compareSync(password, userDoc.password);
+        if (passOk) {
+            jwt.sign({ email: userDoc.email, id: userDoc._id }, jwtsecret, {}, (err, token) => {
+                if (err) throw err;
+                res.cookie('token', token).json('pass ok');
+            });
+        } else {
+            res.status(422).json('pass not ok');
+        }
+    } else {
         res.json('not found');
     }
-    });
+});
+
+
            
    
 
