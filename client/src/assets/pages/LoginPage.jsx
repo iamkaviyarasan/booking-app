@@ -1,3 +1,5 @@
+
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -12,7 +14,7 @@ export default function LoginPage(){
     <input type="password" placeholder="password" />
     <button className="primary">Login</button>
     <div className="text-center py-2 text-gray-500">
-        Don't have an account yet? <Link className="UnderLine text-black" to={'/register'}>Register now</Link> 
+        Don't have an account yet? <Link className="underLine text-black" to={"/register"}>Register Now</Link> 
     </div>
 </form>
             
