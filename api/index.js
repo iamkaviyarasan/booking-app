@@ -64,11 +64,11 @@ app.post('/login', async (req, res) => {
         res.json('not found');
     }
 });
-app.get ('/profile', (req,res) =>{
-    const {token } =req.cookies;
+app.get('/profile', (req,res) =>{
+    const {token} =req.cookies;
     res.json({token});
  
-})
+});
 
 
            
